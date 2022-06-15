@@ -3,6 +3,7 @@
   --brand-second-color: #ffffff;
   --brand-third-color: #2f303a;
   --text-main-color: #212121;
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .container {
@@ -38,6 +39,8 @@ body {
 .link {
   text-decoration: none;
   color: var(--text-main-color);
+  transition: var(--transition);
+  transition-property: color, background-color, box-shadow;
 }
 
 .link:visited {
@@ -56,15 +59,17 @@ body {
   border-bottom: 1px solid #ececec;
 }
 
-.head > .container {
+.head>.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: var(--brand-second-color);
 }
-.logo > a {
+
+.logo>a {
   cursor: default;
 }
+
 .logo {
   font-family: "Raleway";
   font-weight: 700;
@@ -97,7 +102,7 @@ body {
   text-decoration: none;
 }
 
-.logo > a {
+.logo>a {
   cursor: pointer;
 }
 
@@ -128,8 +133,8 @@ body {
 
 .icon-contact {
   fill: #afb1b8;
+  transition: var(--transition);
   transition-property: fill;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-contact:active,
@@ -142,11 +147,9 @@ body {
 .service {
   display: flex;
   min-height: 600px;
-  background-image: linear-gradient(
-      0deg,
+  background-image: linear-gradient(0deg,
       rgba(47, 48, 58, 0.4) 0%,
-      rgba(47, 48, 50, 0.4) 100%
-    ),
+      rgba(47, 48, 50, 0.4) 100%),
     url(../images/service.jpg);
   background-size: 1600px;
   background-repeat: no-repeat;
@@ -278,11 +281,9 @@ h4 {
 .project-item-des {
   width: 370px;
   height: 70px;
-  background-image: linear-gradient(
-    0deg,
-    rgba(47, 48, 58, 0.8) 0%,
-    rgba(47, 48, 58, 0.8) 100%
-  );
+  background-image: linear-gradient(0deg,
+      rgba(47, 48, 58, 0.8) 0%,
+      rgba(47, 48, 58, 0.8) 100%);
   position: absolute;
   bottom: 5px;
   display: flex;
@@ -296,7 +297,6 @@ h4 {
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-
   color: #ffffff;
 }
 
@@ -333,7 +333,7 @@ h4 {
   color: #757575;
 }
 
-.team-des > p {
+.team-des>p {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
@@ -379,6 +379,7 @@ h4 {
   list-style: none;
   padding: 0;
 }
+
 .company-item {
   display: flex;
   align-items: center;
@@ -387,10 +388,14 @@ h4 {
   height: 92px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: var(--transition);
+  transition-property: fill;
 }
 
 .icon-client {
   fill: #afb1b8;
+  transition: var(--transition);
+  transition-property: fill;
 }
 
 .company-item:active,
@@ -459,12 +464,15 @@ h4 {
   background: #f5f4fa;
   border-radius: 4px;
   border: 0px;
+  transition: var(--transition);
+  transition-property: color, background, box-shadow;
 }
 
-.filter > li:first-child {
+.filter>li:first-child {
   margin-left: 0;
 }
-.filter > li:last-child {
+
+.filter>li:last-child {
   margin-right: 0;
 }
 
@@ -483,7 +491,6 @@ h4 {
 }
 
 .item-portfolio {
-  position: relative;
   width: 370px;
   height: 404px;
   margin: 15px;
@@ -491,15 +498,17 @@ h4 {
   background: var(--brand-second-color);
   overflow: hidden;
   cursor: pointer;
-  transition-property: box-shadow;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition);
+  transition-property: fill;
+  border: 1px solid #EEEEEE;
 }
 
 .item-portfolio:hover .overlay {
+  visibility: visible;
   transform: translateY(0);
 }
 
-.item-portfolio > img {
+.item-portfolio>img {
   object-fit: cover;
 }
 
@@ -513,19 +522,25 @@ h4 {
   margin: 0px;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(33, 150, 243, 0.9);
-  transform: translateY(100%);
-  transition-property: transform;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.img-over {
+  position: relative;
+  overflow: hidden;
 }
 
-.overlay > p {
+.overlay {
+  z-index: 1;
+  visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+  width: 370px;
+  height: 294px;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: var(--transition);
+  transition-property: transform;
+}
+
+.overlay>p {
   text-align: left;
   padding-top: 49px;
   padding-left: 24px;
@@ -540,15 +555,15 @@ h4 {
   color: #ffffff;
 }
 
-.item-portfolio > h3 {
+.item-portfolio>h3 {
   padding-left: 24px;
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 0.06em;
-  color: #212121;
+  color: var(--text-main-color);
 }
 
-.item-portfolio > p {
+.item-portfolio>p {
   padding-left: 24px;
   font-weight: 400;
   font-size: 16px;
@@ -612,7 +627,7 @@ address {
   list-style: none;
 }
 
-.footer-contact > li {
+.footer-contact>li {
   margin-bottom: 9px;
 }
 
@@ -638,6 +653,8 @@ address {
   padding-right: 10px;
   fill: var(--brand-second-color);
   --color3: rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+  transition-property: var(--color3);
 }
 
 .icon-footer:active,
@@ -674,9 +691,10 @@ address {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  transition-property: transform;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition);
+  transition-property: transform, visibility, opacity;
 }
+
 .modal {
   position: absolute;
   top: 50%;
@@ -685,8 +703,8 @@ address {
   width: 528px;
   min-height: 581px;
   background-color: var(--brand-second-color);
+  transition: var(--transition);
   transition-property: transform;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-close {
@@ -700,6 +718,7 @@ address {
   border-radius: 50%;
   cursor: pointer;
 }
+
 .is-hidden {
   opacity: 0;
   visibility: hidden;
@@ -713,6 +732,7 @@ address {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .is-hidden .modal {
   transform: translate(100%);
 }
