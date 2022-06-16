@@ -491,6 +491,8 @@ h4 {
 }
 
 .item-portfolio {
+  position: relative;
+  z-index: 1;
   width: 370px;
   height: 404px;
   margin: 15px;
@@ -513,9 +515,14 @@ h4 {
 }
 
 .item-des {
-  margin-left: 25px;
+  position: absolute;
+  z-index: 101;
   font-size: 16px;
   color: #757575;
+  padding-left: 25px;
+  background-color: var(--brand-second-color);
+  width: 100%;
+  height: 100%;
 }
 
 .item-img {
@@ -528,7 +535,7 @@ h4 {
 }
 
 .overlay {
-  z-index: 1;
+  z-index: 4;
   visibility: hidden;
   position: absolute;
   overflow: hidden;
@@ -556,6 +563,8 @@ h4 {
 }
 
 .item-portfolio>h3 {
+  position: relative;
+  z-index: 3;
   padding-left: 24px;
   font-weight: 700;
   font-size: 18px;
@@ -564,6 +573,8 @@ h4 {
 }
 
 .item-portfolio>p {
+  position: relative;
+  z-index: 3;
   padding-left: 24px;
   font-weight: 400;
   font-size: 16px;
